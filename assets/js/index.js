@@ -1,4 +1,3 @@
-
 const proxy = 'https://cors-anywhere.kosmi.io/';
 const schedule_url = 'https://cchgeu.ru/studentu/schedule/stf/';
 const main_url = 'https://cchgeu.ru/';
@@ -108,10 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSchedule(parsedSchedule, selectedWeekType);
     });
 
-    axios.get(proxy + schedule_url)
-        .then(async function (response) {
+    fetch(proxy + schedule_url)
+        .then(response => response.text())
+        .then(async data => {
             const parser = new DOMParser();
-            const doc = parser.parseFromString(response.data, 'text/html');
+            const doc = parser.parseFromString(data, 'text/html');
             const links = Array.from(doc.querySelectorAll('a'));
 
             const scheduleLink = links.find(link => link.href.includes('bRSO_211.xls') || link.href.includes('bRSO_211.xlsx'));
