@@ -39,6 +39,10 @@ async function fetchAndParseSchedule() {
 
         const scheduleLink = links.find(link => link.href.includes('bRSO_211.xls') || link.href.includes('bRSO_211.xlsx'));
         if (scheduleLink) {
+            const smallElement = scheduleLink.closest('small');
+            const updateText = smallElement ? smallElement.textContent : '';
+            console.log(updateText);
+            
             const fileUrl = scheduleLink.href.replace(window.location.href, proxy + main_url);
             const fileResponse = await fetch(fileUrl);
             const fileArrayBuffer = await fileResponse.arrayBuffer();
