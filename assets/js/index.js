@@ -41,7 +41,7 @@ async function fetchAndParseSchedule() {
         if (scheduleLink) {
             const smallElement = scheduleLink.closest('small');
             const updateText = smallElement ? smallElement.textContent : '';
-            console.log(updateText);
+            console.log("Обновлено: " + updateText);
             
             const fileUrl = scheduleLink.href.replace(window.location.href, proxy + main_url);
             const fileResponse = await fetch(fileUrl);
