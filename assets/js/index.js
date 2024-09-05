@@ -131,6 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const scheduleLink = links.find(link => link.href.includes('bRSO_211.xls') || link.href.includes('bRSO_211.xlsx'));
             if (scheduleLink) {
                 const fileUrl = scheduleLink.href.replace(window.location.href, proxy + main_url);
+                const smallElement = scheduleLink.nextElementSibling;
+                const updateText = smallElement ? smallElement.textContent : '';
+                const lastUpdateElement = document.getElementById('lastUpdate');
+                lastUpdateElement.textContent = `${updateText}`;
+                
                 try {
                     const fileResponse = await fetch(fileUrl);
                     const fileArrayBuffer = await fileResponse.arrayBuffer();
