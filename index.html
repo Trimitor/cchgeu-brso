@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>brso-211</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
     <div class="container mt-5">
-        <div class="alert alert-danger d-none" role="alert"><span><strong>Ошибка! Свяжитесь с <a href="//vk.com/trimitor" target="_blank">разработчиком</a>.</strong> Возможно,
-                отвалилась прокси, пожалуйста, сообщите ему об этом. </span></div>
+        <div class="alert alert-danger d-none" role="alert"><span><strong>Ошибка! Свяжитесь с разработчиком.</strong> Возможно
+                отвались прокси, пожалуйста, сообщите ему об этом</span></div>
     </div>
     <div class="container mt-1">
         <div class="row">
@@ -26,7 +27,9 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-3">
+            <div id="lastUpdate" class="col-md-12 text-end mb-1">
+            </div>
             <div class="col-md-12">
                 <div id="accordionContainer" class="accordion" role="tablist">
                     <!-- Заглушка загрузки -->
@@ -40,7 +43,6 @@
         </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/axios.min.js"></script>
     <script src="assets/js/xlsx.full.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
