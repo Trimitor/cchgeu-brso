@@ -4,7 +4,6 @@ const proxies = [
     'https://cors-anywhere.hellowoofy.com/',
     'https://cors-anywhere-bc.herokuapp.com/',
     'https://cors-anywhere.wcx.cloud/',
-    'https://customcorsanywhere.herokuapp.com/',
     'https://your-cors.herokuapp.com/',
     'https://cors.noroff.dev/'
 ];
@@ -19,6 +18,7 @@ function getRandomProxy() {
     console.log(`Used proxy: ${ proxy }`);
     return proxy;
 }
+const proxy = getRandomProxy();
 
 document.addEventListener('DOMContentLoaded', () => {
     const weekTypeSelector = document.getElementById('weekTypeSelector');
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSchedule(parsedSchedule, selectedWeekType);
     });
 
-    axios.get(getRandomProxy() + schedule_url)
+    axios.get(proxy + schedule_url)
         .then(async function (response) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(response.data, 'text/html');
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const scheduleLink = links.find(link => link.href.includes('bRSO_211.xls') || link.href.includes('bRSO_211.xlsx'));
             if (scheduleLink) {
-                const fileUrl = scheduleLink.href.replace(window.location.href, getRandomProxy() + main_url);
+                const fileUrl = scheduleLink.href.replace(window.location.href, proxy + main_url);
                 try {
                     const fileResponse = await fetch(fileUrl);
                     const fileArrayBuffer = await fileResponse.arrayBuffer();
