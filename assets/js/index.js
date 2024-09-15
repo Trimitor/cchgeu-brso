@@ -1,5 +1,5 @@
 const proxies = [
-    //'https://cors-anywhere.kosmi.io/',
+    'https://cors-anywhere.kosmi.io/',
     // 'https://cors-anywhere.clcl.org/',
     // 'https://cors-anywhere.hellowoofy.com/',
     'https://cors-anywhere-bc.herokuapp.com/'
