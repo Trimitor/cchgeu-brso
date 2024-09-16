@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             .catch(error => handleError('Ошибка при загрузке или обработке файла:', error));
                     } else {
                         // Данные актуальны, скрываем спиннер
+                        console.log(`Данные актуальны. Local: ${savedLastUpdate}. Remote: ${updateText}`)
                         updateSpinner.classList.add('d-none');
                     }
                 }
